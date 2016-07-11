@@ -1,3 +1,5 @@
+#! /usr/bin/python
+
 import webbrowser
 
 import numpy as np
@@ -18,12 +20,15 @@ keyword_lines = lines(keyword_file)
 
 print(keyword_lines[1])
 print(type(keyword_lines[1]))
-print("how many lines: ",len(keyword_lines))
+print("how many searches? ",len(keyword_lines))
 
 def search():
 	for i in range(len(keyword_lines)):
 		tabUrl = "http://google.com/?q="
 		umich=" University of Michigan Ann Arbor"
 		term=keyword_lines[i]
-		webbrowser.open(tabUrl+term+umich,new=i)
+		webbrowser.open(tabUrl+term+umich,new=[i])#opens a new tab for each search in default browser
 search()
+
+#Future todo: 
+# save searched links to a file ;)
